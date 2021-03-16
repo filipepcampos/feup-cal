@@ -76,6 +76,50 @@ CMAKE_BINARY_DIR = /home/filipe/feup/cal/aulas_praticas/cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/snap/clion/139/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/snap/clion/139/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/snap/clion/139/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/snap/clion/139/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -99,50 +143,6 @@ install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
 	/snap/clion/139/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/snap/clion/139/bin/cmake/linux/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/snap/clion/139/bin/cmake/linux/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/snap/clion/139/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/snap/clion/139/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -202,6 +202,32 @@ TP2: cmake_check_build_system
 TP2/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP2.dir/build.make CMakeFiles/TP2.dir/build
 .PHONY : TP2/fast
+
+#=============================================================================
+# Target rules for targets named TP3
+
+# Build rule for target.
+TP3: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TP3
+.PHONY : TP3
+
+# fast build rule for target.
+TP3/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP3.dir/build.make CMakeFiles/TP3.dir/build
+.PHONY : TP3/fast
+
+#=============================================================================
+# Target rules for targets named TP4
+
+# Build rule for target.
+TP4: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TP4
+.PHONY : TP4
+
+# fast build rule for target.
+TP4/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/build
+.PHONY : TP4/fast
 
 #=============================================================================
 # Target rules for targets named gmock_main
@@ -552,6 +578,222 @@ TP2/ex4.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP2.dir/build.make CMakeFiles/TP2.dir/TP2/ex4.cpp.s
 .PHONY : TP2/ex4.cpp.s
 
+TP3/ex1.o: TP3/ex1.cpp.o
+
+.PHONY : TP3/ex1.o
+
+# target to build an object file
+TP3/ex1.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP3.dir/build.make CMakeFiles/TP3.dir/TP3/ex1.cpp.o
+.PHONY : TP3/ex1.cpp.o
+
+TP3/ex1.i: TP3/ex1.cpp.i
+
+.PHONY : TP3/ex1.i
+
+# target to preprocess a source file
+TP3/ex1.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP3.dir/build.make CMakeFiles/TP3.dir/TP3/ex1.cpp.i
+.PHONY : TP3/ex1.cpp.i
+
+TP3/ex1.s: TP3/ex1.cpp.s
+
+.PHONY : TP3/ex1.s
+
+# target to generate assembly for a file
+TP3/ex1.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP3.dir/build.make CMakeFiles/TP3.dir/TP3/ex1.cpp.s
+.PHONY : TP3/ex1.cpp.s
+
+TP3/ex2.o: TP3/ex2.cpp.o
+
+.PHONY : TP3/ex2.o
+
+# target to build an object file
+TP3/ex2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP3.dir/build.make CMakeFiles/TP3.dir/TP3/ex2.cpp.o
+.PHONY : TP3/ex2.cpp.o
+
+TP3/ex2.i: TP3/ex2.cpp.i
+
+.PHONY : TP3/ex2.i
+
+# target to preprocess a source file
+TP3/ex2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP3.dir/build.make CMakeFiles/TP3.dir/TP3/ex2.cpp.i
+.PHONY : TP3/ex2.cpp.i
+
+TP3/ex2.s: TP3/ex2.cpp.s
+
+.PHONY : TP3/ex2.s
+
+# target to generate assembly for a file
+TP3/ex2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP3.dir/build.make CMakeFiles/TP3.dir/TP3/ex2.cpp.s
+.PHONY : TP3/ex2.cpp.s
+
+TP4/ex1.o: TP4/ex1.cpp.o
+
+.PHONY : TP4/ex1.o
+
+# target to build an object file
+TP4/ex1.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/TP4/ex1.cpp.o
+.PHONY : TP4/ex1.cpp.o
+
+TP4/ex1.i: TP4/ex1.cpp.i
+
+.PHONY : TP4/ex1.i
+
+# target to preprocess a source file
+TP4/ex1.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/TP4/ex1.cpp.i
+.PHONY : TP4/ex1.cpp.i
+
+TP4/ex1.s: TP4/ex1.cpp.s
+
+.PHONY : TP4/ex1.s
+
+# target to generate assembly for a file
+TP4/ex1.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/TP4/ex1.cpp.s
+.PHONY : TP4/ex1.cpp.s
+
+TP4/ex2.o: TP4/ex2.cpp.o
+
+.PHONY : TP4/ex2.o
+
+# target to build an object file
+TP4/ex2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/TP4/ex2.cpp.o
+.PHONY : TP4/ex2.cpp.o
+
+TP4/ex2.i: TP4/ex2.cpp.i
+
+.PHONY : TP4/ex2.i
+
+# target to preprocess a source file
+TP4/ex2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/TP4/ex2.cpp.i
+.PHONY : TP4/ex2.cpp.i
+
+TP4/ex2.s: TP4/ex2.cpp.s
+
+.PHONY : TP4/ex2.s
+
+# target to generate assembly for a file
+TP4/ex2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/TP4/ex2.cpp.s
+.PHONY : TP4/ex2.cpp.s
+
+TP4/ex3.o: TP4/ex3.cpp.o
+
+.PHONY : TP4/ex3.o
+
+# target to build an object file
+TP4/ex3.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/TP4/ex3.cpp.o
+.PHONY : TP4/ex3.cpp.o
+
+TP4/ex3.i: TP4/ex3.cpp.i
+
+.PHONY : TP4/ex3.i
+
+# target to preprocess a source file
+TP4/ex3.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/TP4/ex3.cpp.i
+.PHONY : TP4/ex3.cpp.i
+
+TP4/ex3.s: TP4/ex3.cpp.s
+
+.PHONY : TP4/ex3.s
+
+# target to generate assembly for a file
+TP4/ex3.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/TP4/ex3.cpp.s
+.PHONY : TP4/ex3.cpp.s
+
+TP4/ex4.o: TP4/ex4.cpp.o
+
+.PHONY : TP4/ex4.o
+
+# target to build an object file
+TP4/ex4.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/TP4/ex4.cpp.o
+.PHONY : TP4/ex4.cpp.o
+
+TP4/ex4.i: TP4/ex4.cpp.i
+
+.PHONY : TP4/ex4.i
+
+# target to preprocess a source file
+TP4/ex4.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/TP4/ex4.cpp.i
+.PHONY : TP4/ex4.cpp.i
+
+TP4/ex4.s: TP4/ex4.cpp.s
+
+.PHONY : TP4/ex4.s
+
+# target to generate assembly for a file
+TP4/ex4.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/TP4/ex4.cpp.s
+.PHONY : TP4/ex4.cpp.s
+
+TP4/ex5.o: TP4/ex5.cpp.o
+
+.PHONY : TP4/ex5.o
+
+# target to build an object file
+TP4/ex5.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/TP4/ex5.cpp.o
+.PHONY : TP4/ex5.cpp.o
+
+TP4/ex5.i: TP4/ex5.cpp.i
+
+.PHONY : TP4/ex5.i
+
+# target to preprocess a source file
+TP4/ex5.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/TP4/ex5.cpp.i
+.PHONY : TP4/ex5.cpp.i
+
+TP4/ex5.s: TP4/ex5.cpp.s
+
+.PHONY : TP4/ex5.s
+
+# target to generate assembly for a file
+TP4/ex5.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/TP4/ex5.cpp.s
+.PHONY : TP4/ex5.cpp.s
+
+TP4/ex6.o: TP4/ex6.cpp.o
+
+.PHONY : TP4/ex6.o
+
+# target to build an object file
+TP4/ex6.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/TP4/ex6.cpp.o
+.PHONY : TP4/ex6.cpp.o
+
+TP4/ex6.i: TP4/ex6.cpp.i
+
+.PHONY : TP4/ex6.i
+
+# target to preprocess a source file
+TP4/ex6.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/TP4/ex6.cpp.i
+.PHONY : TP4/ex6.cpp.i
+
+TP4/ex6.s: TP4/ex6.cpp.s
+
+.PHONY : TP4/ex6.s
+
+# target to generate assembly for a file
+TP4/ex6.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/TP4/ex6.cpp.s
+.PHONY : TP4/ex6.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -560,6 +802,8 @@ main.o: main.cpp.o
 main.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP1.dir/build.make CMakeFiles/TP1.dir/main.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP2.dir/build.make CMakeFiles/TP2.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP3.dir/build.make CMakeFiles/TP3.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -570,6 +814,8 @@ main.i: main.cpp.i
 main.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP1.dir/build.make CMakeFiles/TP1.dir/main.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP2.dir/build.make CMakeFiles/TP2.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP3.dir/build.make CMakeFiles/TP3.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -580,6 +826,8 @@ main.s: main.cpp.s
 main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP1.dir/build.make CMakeFiles/TP1.dir/main.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP2.dir/build.make CMakeFiles/TP2.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP3.dir/build.make CMakeFiles/TP3.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP4.dir/build.make CMakeFiles/TP4.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -596,6 +844,8 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... TP1"
 	@echo "... TP2"
+	@echo "... TP3"
+	@echo "... TP4"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... gtest"
@@ -633,6 +883,30 @@ help:
 	@echo "... TP2/ex4.o"
 	@echo "... TP2/ex4.i"
 	@echo "... TP2/ex4.s"
+	@echo "... TP3/ex1.o"
+	@echo "... TP3/ex1.i"
+	@echo "... TP3/ex1.s"
+	@echo "... TP3/ex2.o"
+	@echo "... TP3/ex2.i"
+	@echo "... TP3/ex2.s"
+	@echo "... TP4/ex1.o"
+	@echo "... TP4/ex1.i"
+	@echo "... TP4/ex1.s"
+	@echo "... TP4/ex2.o"
+	@echo "... TP4/ex2.i"
+	@echo "... TP4/ex2.s"
+	@echo "... TP4/ex3.o"
+	@echo "... TP4/ex3.i"
+	@echo "... TP4/ex3.s"
+	@echo "... TP4/ex4.o"
+	@echo "... TP4/ex4.i"
+	@echo "... TP4/ex4.s"
+	@echo "... TP4/ex5.o"
+	@echo "... TP4/ex5.i"
+	@echo "... TP4/ex5.s"
+	@echo "... TP4/ex6.o"
+	@echo "... TP4/ex6.i"
+	@echo "... TP4/ex6.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

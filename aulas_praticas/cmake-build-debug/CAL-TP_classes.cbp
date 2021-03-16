@@ -17,26 +17,6 @@
 					<DistClean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="install/strip">
-				<Option working_dir="/home/filipe/feup/cal/aulas_praticas/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="install/local">
-				<Option working_dir="/home/filipe/feup/cal/aulas_praticas/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 			<Target title="install">
 				<Option working_dir="/home/filipe/feup/cal/aulas_praticas/cmake-build-debug"/>
 				<Option type="4"/>
@@ -52,6 +32,16 @@
 				<Option type="4"/>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/filipe/feup/cal/aulas_praticas/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
 					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -109,6 +99,16 @@
 					<DistClean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/filipe/feup/cal/aulas_praticas/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="TP2">
 				<Option output="/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/TP2" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/filipe/feup/cal/aulas_praticas/cmake-build-debug"/>
@@ -161,21 +161,125 @@
 					<DistClean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="edit_cache">
+			<Target title="TP3">
+				<Option output="/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/TP3" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/filipe/feup/cal/aulas_praticas/cmake-build-debug"/>
-				<Option type="4"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/filipe/feup/cal/aulas_praticas/lib/googletest-master/googletest/include"/>
+					<Add directory="/home/filipe/feup/cal/aulas_praticas/lib/googletest-master/googletest"/>
+					<Add directory="/home/filipe/feup/cal/aulas_praticas/lib/googletest-master/googlemock/include"/>
+					<Add directory="/home/filipe/feup/cal/aulas_praticas/lib/googletest-master/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 TP3"/>
 					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="rebuild_cache">
+			<Target title="TP3/fast">
+				<Option output="/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/TP3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/filipe/feup/cal/aulas_praticas/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/filipe/feup/cal/aulas_praticas/lib/googletest-master/googletest/include"/>
+					<Add directory="/home/filipe/feup/cal/aulas_praticas/lib/googletest-master/googletest"/>
+					<Add directory="/home/filipe/feup/cal/aulas_praticas/lib/googletest-master/googlemock/include"/>
+					<Add directory="/home/filipe/feup/cal/aulas_praticas/lib/googletest-master/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 TP3/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
 				<Option working_dir="/home/filipe/feup/cal/aulas_praticas/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/home/filipe/feup/cal/aulas_praticas/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TP4">
+				<Option output="/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/TP4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/filipe/feup/cal/aulas_praticas/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/filipe/feup/cal/aulas_praticas/lib/googletest-master/googletest/include"/>
+					<Add directory="/home/filipe/feup/cal/aulas_praticas/lib/googletest-master/googletest"/>
+					<Add directory="/home/filipe/feup/cal/aulas_praticas/lib/googletest-master/googlemock/include"/>
+					<Add directory="/home/filipe/feup/cal/aulas_praticas/lib/googletest-master/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 TP4"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TP4/fast">
+				<Option output="/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/TP4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/filipe/feup/cal/aulas_praticas/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/filipe/feup/cal/aulas_praticas/lib/googletest-master/googletest/include"/>
+					<Add directory="/home/filipe/feup/cal/aulas_praticas/lib/googletest-master/googletest"/>
+					<Add directory="/home/filipe/feup/cal/aulas_praticas/lib/googletest-master/googlemock/include"/>
+					<Add directory="/home/filipe/feup/cal/aulas_praticas/lib/googletest-master/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 TP4/fast"/>
 					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j12 -f &quot;/home/filipe/feup/cal/aulas_praticas/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -415,6 +519,30 @@
 		<Unit filename="/home/filipe/feup/cal/aulas_praticas/TP2/ex4.cpp">
 			<Option target="TP2"/>
 		</Unit>
+		<Unit filename="/home/filipe/feup/cal/aulas_praticas/TP3/ex1.cpp">
+			<Option target="TP3"/>
+		</Unit>
+		<Unit filename="/home/filipe/feup/cal/aulas_praticas/TP3/ex2.cpp">
+			<Option target="TP3"/>
+		</Unit>
+		<Unit filename="/home/filipe/feup/cal/aulas_praticas/TP4/ex1.cpp">
+			<Option target="TP4"/>
+		</Unit>
+		<Unit filename="/home/filipe/feup/cal/aulas_praticas/TP4/ex2.cpp">
+			<Option target="TP4"/>
+		</Unit>
+		<Unit filename="/home/filipe/feup/cal/aulas_praticas/TP4/ex3.cpp">
+			<Option target="TP4"/>
+		</Unit>
+		<Unit filename="/home/filipe/feup/cal/aulas_praticas/TP4/ex4.cpp">
+			<Option target="TP4"/>
+		</Unit>
+		<Unit filename="/home/filipe/feup/cal/aulas_praticas/TP4/ex5.cpp">
+			<Option target="TP4"/>
+		</Unit>
+		<Unit filename="/home/filipe/feup/cal/aulas_praticas/TP4/ex6.cpp">
+			<Option target="TP4"/>
+		</Unit>
 		<Unit filename="/home/filipe/feup/cal/aulas_praticas/lib/googletest-master/googlemock/src/gmock-all.cc">
 			<Option target="gmock"/>
 		</Unit>
@@ -430,6 +558,8 @@
 		<Unit filename="/home/filipe/feup/cal/aulas_praticas/main.cpp">
 			<Option target="TP1"/>
 			<Option target="TP2"/>
+			<Option target="TP3"/>
+			<Option target="TP4"/>
 		</Unit>
 		<Unit filename="/home/filipe/feup/cal/aulas_praticas/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
