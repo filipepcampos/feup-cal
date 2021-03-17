@@ -320,9 +320,10 @@ int Graph<T>::maxNewChildren(const T & source, T &inf) const {
     std::queue<Vertex<T> *> queue;
     std::vector<T> res;
     Vertex<T> *v = findVertex(source);
-    if(v != NULL){
-        queue.push(v);
+    if(v == NULL){
+        return 0;
     }
+    queue.push(v);
     int max_value = 0;
 
     while(!queue.empty()){
@@ -330,14 +331,14 @@ int Graph<T>::maxNewChildren(const T & source, T &inf) const {
         if(!v->visited){
             v->visited = true;
             res.push_back(v->info);
-            int n_friends = 0;
+            int n_connections = 0;
             for(auto &edge : v->adj){
                 if(!edge.dest->visited)
-                    n_friends++;
+                    n_connections++;
                 queue.push(edge.dest);
             }
-            if(n_friends > max_value){
-                max_value = n_friends;
+            if(n_connections > max_value){
+                max_value = n_connections;
                 inf = v->info;
             }
         }
