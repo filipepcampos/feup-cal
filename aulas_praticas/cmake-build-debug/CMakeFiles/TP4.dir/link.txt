@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -Wextra -g   CMakeFiles/TP4.dir/main.cpp.o CMakeFiles/TP4.dir/TP4/ex1.cpp.o CMakeFiles/TP4.dir/TP4/ex2.cpp.o CMakeFiles/TP4.dir/TP4/ex3.cpp.o CMakeFiles/TP4.dir/TP4/ex4.cpp.o CMakeFiles/TP4.dir/TP4/ex5.cpp.o CMakeFiles/TP4.dir/TP4/ex6.cpp.o  -o TP4  lib/libgtest_maind.a lib/libgmock_maind.a lib/libgmockd.a lib/libgtestd.a -lpthread 
