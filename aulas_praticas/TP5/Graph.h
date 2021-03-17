@@ -6,6 +6,8 @@
 
 #include <vector>
 #include <queue>
+#include <algorithm>
+#include <list>
 
 template <class T> class Edge;
 template <class T> class Graph;
@@ -92,8 +94,10 @@ Vertex<T> * Graph<T>::findVertex(const T &in) const {
  */
 template <class T>
 bool Graph<T>::addVertex(const T &in) {
-    // TODO (4 lines)
-    // HINT: use the findVertex function to check if a vertex already exists
+    if(findVertex(in) == NULL){
+        vertexSet.push_back(new Vertex<T>(in));
+        return true;
+    }
     return false;
 }
 
@@ -106,9 +110,12 @@ bool Graph<T>::addVertex(const T &in) {
  */
 template <class T>
 bool Graph<T>::addEdge(const T &sourc, const T &dest, double w) {
-    // TODO (6 lines)
-    // HINT: use findVertex to obtain the actual vertices
-    // HINT: use the next function to actually add the edge
+    Vertex<T> *sourc_vert = findVertex(sourc);
+    Vertex<T> *dest_vert = findVertex(dest);
+    if(sourc_vert && dest_vert){
+        sourc_vert->addEdge(dest_vert, w);
+        return true;
+    }
     return false;
 }
 
@@ -118,7 +125,7 @@ bool Graph<T>::addEdge(const T &sourc, const T &dest, double w) {
  */
 template <class T>
 void Vertex<T>::addEdge(Vertex<T> *d, double w) {
-    // TODO (1 line)
+    adj.push_back(Edge<T>(d,w));
 }
 
 
@@ -131,9 +138,11 @@ void Vertex<T>::addEdge(Vertex<T> *d, double w) {
  */
 template <class T>
 bool Graph<T>::removeEdge(const T &sourc, const T &dest) {
-    // TODO (5 lines)
-    // HINT: Use "findVertex" to obtain the actual vertices.
-    // HINT: Use the next function to actually remove the edge.
+    Vertex<T> *sourc_vert = findVertex(sourc);
+    Vertex<T> *dest_vert = findVertex(dest);
+    if(sourc_vert && dest_vert){
+        return sourc_vert->removeEdgeTo(dest_vert);
+    }
     return false;
 }
 
@@ -144,8 +153,12 @@ bool Graph<T>::removeEdge(const T &sourc, const T &dest) {
  */
 template <class T>
 bool Vertex<T>::removeEdgeTo(Vertex<T> *d) {
-    // TODO (6 lines)
-    // HINT: use an iterator to scan the "adj" vector and then erase the edge.
+    for(auto it = adj.begin(); it != adj.end(); ++it){
+        if((*it).dest == d){
+            adj.erase(it);
+            return true;
+        }
+    }
     return false;
 }
 
@@ -159,9 +172,15 @@ bool Vertex<T>::removeEdgeTo(Vertex<T> *d) {
  */
 template <class T>
 bool Graph<T>::removeVertex(const T &in) {
-    // TODO (10 lines)
-    // HINT: use an iterator to scan the "vertexSet" vector and then erase the vertex.
-    // HINT: take advantage of "removeEdgeTo" to remove incoming edges.
+    Vertex<T> *vert = findVertex(in);
+    if(vert){
+        auto it = vertexSet.begin();
+        for(auto v : vertexSet){
+            v->removeEdgeTo(vert);
+        }
+        vertexSet.erase(std::find(vertexSet.begin(), vertexSet.end(), vert));
+        return true;
+    }
     return false;
 }
 
@@ -175,8 +194,22 @@ bool Graph<T>::removeVertex(const T &in) {
  */
 template <class T>
 std::vector<T> Graph<T>::dfs() const {
-    // TODO (7 lines)
     std::vector<T> res;
+    Vertex<T> *v1 = vertexSet[0];
+    bool all_visited = false;
+    while(!all_visited){
+        dfsVisit(v1, res);
+        all_visited = true;
+        for(auto v : vertexSet){
+            if(!(v->visited)){
+                all_visited = false;
+                v1 = v;
+            }
+        }
+    }
+    for(auto v : vertexSet){
+        v->visited = false;
+    }
     return res;
 }
 
@@ -186,7 +219,13 @@ std::vector<T> Graph<T>::dfs() const {
  */
 template <class T>
 void Graph<T>::dfsVisit(Vertex<T> *v, std::vector<T> & res) const {
-    // TODO (7 lines)
+    if(!v->visited){
+        res.push_back(v->info);
+        v->visited = true;
+        for(auto &edge : v->adj){
+            dfsVisit(edge.dest, res);
+        }
+    }
 }
 
 /****************** 2b) bfs ********************/
@@ -199,10 +238,26 @@ void Graph<T>::dfsVisit(Vertex<T> *v, std::vector<T> & res) const {
  */
 template <class T>
 std::vector<T> Graph<T>::bfs(const T & source) const {
-    // TODO (22 lines)
-    // HINT: Use the flag "visited" to mark newly discovered vertices .
-    // HINT: Use the "queue<>" class to temporarily store the vertices.
+    std::queue<Vertex<T> *> queue;
     std::vector<T> res;
+    Vertex<T> *v = findVertex(source);
+    if(v != NULL){
+        queue.push(v);
+    }
+
+    while(!queue.empty()){
+        v = queue.front(); queue.pop();
+        if(!v->visited){
+            v->visited = true;
+            res.push_back(v->info);
+            for(auto &edge : v->adj){
+                queue.push(edge.dest);
+            }
+        }
+    }
+    for(auto v : vertexSet){
+        v->visited = false;
+    }
     return res;
 }
 
@@ -217,8 +272,36 @@ std::vector<T> Graph<T>::bfs(const T & source) const {
 
 template<class T>
 std::vector<T> Graph<T>::topsort() const {
-    // TODO (26 lines)
     std::vector<T> res;
+    std::queue<Vertex<T> *> C;
+
+    for(auto v : vertexSet){
+        v->indegree = 0;
+    }
+    for(auto v : vertexSet){
+        for(auto &edge : v->adj){
+            edge.dest->indegree++;
+        }
+    }
+    for(auto v : vertexSet){
+        if(v->indegree == 0){
+            C.push(v);
+        }
+    }
+
+    while(!C.empty()){
+        Vertex<T> *v = C.front(); C.pop();
+        res.push_back(v->info);
+        for(auto &edge : v->adj){
+            (edge.dest)->indegree--;
+            if(edge.dest->indegree == 0){
+                C.push(edge.dest);
+            }
+        }
+    }
+    if(res.size() != vertexSet.size()){
+        return std::vector<T>();
+    }
     return res;
 }
 
@@ -234,8 +317,35 @@ std::vector<T> Graph<T>::topsort() const {
 
 template <class T>
 int Graph<T>::maxNewChildren(const T & source, T &inf) const {
-    // TODO (28 lines, mostly reused)
-    return 0;
+    std::queue<Vertex<T> *> queue;
+    std::vector<T> res;
+    Vertex<T> *v = findVertex(source);
+    if(v != NULL){
+        queue.push(v);
+    }
+    int max_value = 0;
+
+    while(!queue.empty()){
+        v = queue.front(); queue.pop();
+        if(!v->visited){
+            v->visited = true;
+            res.push_back(v->info);
+            int n_friends = 0;
+            for(auto &edge : v->adj){
+                if(!edge.dest->visited)
+                    n_friends++;
+                queue.push(edge.dest);
+            }
+            if(n_friends > max_value){
+                max_value = n_friends;
+                inf = v->info;
+            }
+        }
+    }
+    for(auto v : vertexSet){
+        v->visited = false;
+    }
+    return max_value;
 }
 
 /****************** 3b) isDAG   (HOME WORK)  ********************/
@@ -250,9 +360,8 @@ int Graph<T>::maxNewChildren(const T & source, T &inf) const {
 
 template <class T>
 bool Graph<T>::isDAG() const {
-    // TODO (9 lines, mostly reused)
-    // HINT: use the auxiliary field "processing" to mark the vertices in the stack.
-    return true;
+    std::vector<T> a = topsort();
+    return a.size()==vertexSet.size();
 }
 
 /**
